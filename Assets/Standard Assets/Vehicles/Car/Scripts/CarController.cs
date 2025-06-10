@@ -82,6 +82,8 @@ namespace UnityStandardAssets.Vehicles.Car {
             }
         }
 
+        public float GetMaxSteerAngle() => m_MaximumSteerAngle;
+        
         private void GearChanging() {
             var f = Mathf.Abs(CurrentSpeed / MaxSpeed);
             var upgearlimit = 1 / (float)NoOfGears * (m_GearNum + 1);
@@ -167,8 +169,7 @@ namespace UnityStandardAssets.Vehicles.Car {
             CheckForWheelSpin();
             TractionControl();
         }
-
-
+        
         private void CapSpeed() {
             var speed = m_Rigidbody.linearVelocity.magnitude;
             switch (m_SpeedType) {
